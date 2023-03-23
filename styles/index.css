@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Deacon Blues';
+    src: url('/fonts/deaconblues.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Deacon Half';
+    src: url('/fonts/deaconblueshalf.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Deacon Half Chrome';
+    src: url('/fonts/deaconblueschrome.ttf') format('truetype')
+}
+
+
+.deaconBlue{
+    font-family: 'Deacon Blues', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.deaconHalf{
+    font-family: 'Deacon Half', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.deaconHalfChrome{
+    font-family: 'Deacon Half Chrome', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.title{
+    color: white;
+    text-shadow: 0 0 10px #eeeeee, 0 0 5px #9E4784, 0 0 10px #9E4784, 0 0 10px #9E4784,
+    0 0 0px #9E4784, 0 0 0px #9E4784, 0 0 0px #9E4784;
+}
