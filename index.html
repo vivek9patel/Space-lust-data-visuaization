@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang='en' data-theme="light">
 
-    <head>
-        <title>Homework #4: Innovative Visualization Design</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-    
-        <!-- Custom CSS File -->
-        <link rel="stylesheet" href="styles/index.css">
+<head>
+    <title>Homework #4: Innovative Visualization Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        <!-- Helper JS Files -->
-        <script src="js/helper.js"></script>
-    </head>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="styles/index.css">
+
+    <!-- Helper JS Files -->
+    <script src="js/helper.js"></script>
+</head>
 
 <body>
     <div class="bg-black w-screen h-screen text-white py-4 px-8 flex">
@@ -20,20 +20,30 @@
             <svg></svg>
         </div>
         <div class="contentWrapper flex-1 flex flex-col items-center h-full">
-            <h1 class=" title text-7xl text-center deaconHalfChrome" >Space Lust</h1>
+            <h1 class=" title text-5xl 2xl:text-7xl text-center deaconHalfChrome">Space Lust</h1>
             <h2 class="subtitle text-3xl text-center deaconBlue">vpatel63@asu.edu</h2>
-            <div class="my-4 flex flex-col justify-between flex-1">
-                <div class="flex-1 ">
-                    <!-- add a title and short description that explains your design (marks, channels, interactions) -->
-                    <p class="text-xl font-bold">This visualization shows the exoplanets with distance from <span class="underline font-bold selectedPlanetText">Earth</span>.</p>
-                    <ul class="list-disc list-inside mt-2">
-                        <li>The <span class="underline font-bold">size</span> of the circle represents the <span class="underline font-bold">radius</span> of the planet with respect to <span class="selectedPlanetText">Earth</span>.</li>
-                        <li>The <span class="underline font-bold">color</span> of the circle represents the <span class="underline font-bold">type of planet</span>.</li>
-                        <li>The <span class="underline font-bold">angle</span>  shows the <span class="underline font-bold">mass</span> of the planet with respect to <span class="selectedPlanetText">Earth</span>. Which means, the more the mass the more the angle.</li>
-                        <li>You can see circluar boundry with it's width in increasing order, which shows the increasing mass with respect to <span class="selectedPlanetText">Earth</span>.</li>
-                        <li> You can <span class="underline font-bold">hover</span> over exoplanets to see the <span class="underline font-bold">name</span> & <span class="underline font-bold">distnace</span> of the planet.</li>
+            <div class="my-4 flex flex-col justify-between flex-1 overflow-y-auto">
+                <div class="flex-1">
+                    <p class="text-center font-bold text-md 2xl:text-xl">This visualization shows the exoplanets with
+                        distance from <span class="underline font-bold selectedPlanetText">Earth</span>.</p>
+                    <ul class="list-disc list-inside mt-10 text-sm 2xl:text-xl">
+                        <li>The <span class="underline font-bold">size</span> of the circle represents the <span
+                                class="underline font-bold">radius</span> of the planet with respect to <span
+                                class="selectedPlanetText">Earth</span>.</li>
+                        <li>The <span class="underline font-bold">color</span> of the circle represents the <span
+                                class="underline font-bold">type of planet</span>.</li>
+                        <li>The <span class="underline font-bold">angle</span> shows the <span
+                                class="underline font-bold">mass</span> of the planet with respect to <span
+                                class="selectedPlanetText">Earth</span>. Which means, the more the mass the more the
+                            angle.</li>
+                        <li>You can see circluar boundry with it's width in increasing order, which shows the increasing
+                            mass with respect to <span class="selectedPlanetText">Earth</span>.</li>
+                        <li> You can <span class="underline font-bold">hover</span> over exoplanets to see the <span
+                                class="underline font-bold">name</span> & <span
+                                class="underline font-bold">distnace</span> of the planet.</li>
+                        <li> Scroll bottom to see more filters! </li>
                     </ul>
-                    <div class="mt-4">
+                    <div class="mt-10">
                         <h3 class="text-2xl font-extra-bold">Marks & Channels</h3>
                         <div class="flex items-center">
                             <div class="flex flex-col mt-2">
@@ -66,29 +76,42 @@
                                 <div class="flex items-center-justify-center">
                                     <svg id="channelSvg" width="200" height="200"></svg>
                                     <div class="ml-2 flex flex-col items-start justify-end">
-                                        <span class="noFont">θ : Mass w.r.t <span class="selectedPlanetText noFont">Earth</span></span>
-                                        <span class="noFont">R : Distance from <span class="selectedPlanetText noFont">Earth</span></span>
+                                        <span class="noFont">θ : Mass w.r.t <span
+                                                class="selectedPlanetText noFont">Earth</span></span>
+                                        <span class="noFont">R : Distance from <span
+                                                class="selectedPlanetText noFont">Earth</span></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="flex-1 flex flex-col">
-                    <div class="flex items-center justify-center">
+                <div class="flex-1 flex flex-col mt-10">
+                    <div class="flex items-center justify-center mr-10">
                         <label class="switch">
                             <input type="checkbox" id="selectedPlanetToggle" checked>
                             <span class="label-slider text-xl"></span>
                         </label>
-                        <span class="text-xl selectedPlanetText selectedPlanetToggle-label ml-2 w-10">Earth</span>
+                        <span class="text-xl selectedPlanetText selectedPlanetToggle-label ml-4 w-10">Earth</span>
+                    </div>
+                    <div class="mt-10 flex items-center w-full">
+                        <div class="text-md 2xl:text-xl">Discovery Year</div>
+                        <div class="flex-1 flex items-center justify-center">
+                            <div class="text-left text-lg 2xl:text-2xl" id="currentSelectedMinDiscoveryYear">1960</div>
+                            <div class="slidecontainer flex flex-col items-center mx-4">
+                                <input type="range" min="1960" max="2023" value="2023" step="1"
+                                    class="rangeSlider w-44 2xl:w-80" id="discoveryYearRange">
+                            </div>
+                            <div class="text-left text-lg 2xl:text-2xl" id="currentSelectedMaxDiscoveryYear">2023</div>
+                        </div>
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 
 
-    <!-- Main JS Files -->
-    <script src="js/index.js"></script>
+        <!-- Main JS Files -->
+        <script src="js/index.js"></script>
 </body>
 
 </html>
