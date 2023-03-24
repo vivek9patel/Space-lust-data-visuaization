@@ -23,9 +23,56 @@
             <h1 class=" title text-7xl text-center deaconHalfChrome" >Space Lust</h1>
             <h2 class="subtitle text-3xl text-center deaconBlue">vpatel63@asu.edu</h2>
             <div class="my-4 flex flex-col justify-between flex-1">
-                <div class="flex-1">
+                <div class="flex-1 ">
                     <!-- add a title and short description that explains your design (marks, channels, interactions) -->
-                    <p class="text-xl">This visualization shows the exoplanets with distance from <span class="underline font-bold">Earth or Jupiter</span>.</p>
+                    <p class="text-xl font-bold">This visualization shows the exoplanets with distance from <span class="underline font-bold selectedPlanetText">Earth</span>.</p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li>The <span class="underline font-bold">size</span> of the circle represents the <span class="underline font-bold">radius</span> of the planet with respect to <span class="selectedPlanetText">Earth</span>.</li>
+                        <li>The <span class="underline font-bold">color</span> of the circle represents the <span class="underline font-bold">type of planet</span>.</li>
+                        <li>The <span class="underline font-bold">angle</span>  shows the <span class="underline font-bold">mass</span> of the planet with respect to <span class="selectedPlanetText">Earth</span>. Which means, the more the mass the more the angle.</li>
+                        <li>You can see circluar boundry with it's width in increasing order, which shows the increasing mass with respect to <span class="selectedPlanetText">Earth</span>.</li>
+                        <li> You can <span class="underline font-bold">hover</span> over exoplanets to see the <span class="underline font-bold">name</span> & <span class="underline font-bold">distnace</span> of the planet.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <h3 class="text-2xl font-extra-bold">Marks & Channels</h3>
+                        <div class="flex items-center">
+                            <div class="flex flex-col mt-2">
+                                <div class="mt-2 flex items-center">
+                                    <div class="planet earth"></div>
+                                    <div class="ml-2">Earth</div>
+                                </div>
+                                <div class="mt-2 flex items-center">
+                                    <div class="planet jupiter"></div>
+                                    <div class="ml-2">Jupiter</div>
+                                </div>
+                                <div class="mt-2 flex items-center">
+                                    <div class="planet superearth"></div>
+                                    <div class="ml-2">Super Earth</div>
+                                </div>
+                                <div class="mt-2 flex items-center">
+                                    <div class="planet terrestrial"></div>
+                                    <div class="ml-2">Terrestrial</div>
+                                </div>
+                                <div class="mt-2 flex items-center">
+                                    <div class="planet gasGiant"></div>
+                                    <div class="ml-2">Gas Giant</div>
+                                </div>
+                                <div class="mt-2 flex items-center">
+                                    <div class="planet neptuneLike"></div>
+                                    <div class="ml-2">Neptune Like</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-1 items-center justify-center">
+                                <div class="flex items-center-justify-center">
+                                    <svg id="channelSvg" width="200" height="200"></svg>
+                                    <div class="ml-2 flex flex-col items-start justify-end">
+                                        <span class="noFont">θ : Mass w.r.t <span class="selectedPlanetText noFont">Earth</span></span>
+                                        <span class="noFont">R : Distance from <span class="selectedPlanetText noFont">Earth</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex-1 flex flex-col">
                     <div class="flex items-center justify-center">
@@ -33,7 +80,7 @@
                             <input type="checkbox" id="selectedPlanetToggle" checked>
                             <span class="label-slider text-xl"></span>
                         </label>
-                        <span class="text-xl selectedPlanetToggle-label ml-2 w-10">Earth</span>
+                        <span class="text-xl selectedPlanetText selectedPlanetToggle-label ml-2 w-10">Earth</span>
                     </div>
                 </div>
             </div>

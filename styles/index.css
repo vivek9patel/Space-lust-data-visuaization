@@ -43,6 +43,10 @@
     font-family: 'Deacon Half Chrome', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.noFont{
+    font-family: sans-serif;
+}
+
 .title {
     color: white;
     text-shadow: 0 0 10px #eeeeee, 0 0 5px #E384FF, 0 0 10px #E384FF, 0 0 10px #E384FF,
@@ -93,4 +97,36 @@ input:checked+.label-slider:before {
     -webkit-transform: translateX(18px);
     -ms-transform: translateX(18px);
     transform: translateX(18px);
+}
+
+.planet{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid white;
+}
+
+.gasGiant{
+    background-color: red;
+}
+
+.terrestrial{
+    background-color: #0E8388;
+}
+
+.superearth{
+    background-color: green;
+}
+
+.neptuneLike{
+    background-color: yellow;
+}
+
+.earth{
+    background-color: blue;
+}
+
+.jupiter{
+    background-color: orange;
 }

@@ -16,6 +16,8 @@ var angleScale, arcMassScale, arcIncrementScale;
 
 var planetToCompare = "Earth"; // 'Earth' or 'Jupiter'
 
+var svg = d3.select("svg"), channelSvg = d3.select("svg#channelSvg");
+
 const colorFromPlanetType = (planet_type) => {
   switch (planet_type) {
     case "Terrestrial":
@@ -31,14 +33,13 @@ const colorFromPlanetType = (planet_type) => {
   }
 };
 
-var svg = d3.select("svg");
-
 document.addEventListener("DOMContentLoaded", async () => {
   await getData();
   filterDataAccordingToSelectedPlanet();
   setEventListeners();
   calculateSVGDimentions()
   drawEverything();
+  drawChannelSvg();
 });
 
 const getCSVdata = () => Promise.all([d3.csv("data/cleaned_5250.csv")]);
@@ -79,6 +80,60 @@ async function getData() {
   });
 }
 
+function drawChannelSvg(){
+  // draw circle of 200,200
+  const w = channelSvg.attr("width"), h = channelSvg.attr("height");
+  channelSvg
+    .append("circle")
+    .attr("cx", w/2)
+    .attr("cy", h/2)
+    .attr("r", w/2 - 10)
+    .attr("fill", "none")
+    .attr("stroke", "white")
+    .attr("stroke-width", 1);
+
+  channelSvg
+    .append("line")
+    .attr("x1", w/2)
+    .attr("y1", h/2)
+    .attr("x2", w-10)
+    .attr("y2", h/2)
+    .attr("stroke", "white")
+    .attr("stroke-width", 1);
+
+
+  channelSvg
+    .append("line")
+    .attr("x1", w/2)
+    .attr("y1", h/2)
+    .attr("x2", w-70)
+    .attr("y2", (h/2)-85)
+    .attr("stroke", "white")
+    .attr("stroke-width", 1);
+
+    channelSvg
+    .append("text")
+    .attr("x", w/2 + 20)
+    .attr("y", h/2 - 15)
+    .attr("text-anchor", "middle")
+    .attr("dominant-baseline", "middle")
+    .attr("fill", "white")
+    .attr("font-size", 20)
+    .text("θ");
+
+    channelSvg
+    .append("text")
+    .attr("class","noFont")
+    .attr("x", w/2 + w/4)
+    .attr("y", h/2 + 15)
+    .attr("text-anchor", "middle")
+    .attr("dominant-baseline", "middle")
+    .attr("fill", "white")
+    .attr("font-size", 16)
+    .text("R");
+
+}
+
 function filterDataAccordingToSelectedPlanet(){
   planet_data = raw_data.filter((d) => !(d.radius_wrt != planetToCompare || d.mass_wrt != planetToCompare))
 }
@@ -105,7 +160,9 @@ function drawEverything() {
 
 function toggleSelectedPlanet(e){
   planetToCompare = e.target.checked ? "Earth" : "Jupiter";
-  document.getElementsByClassName("selectedPlanetToggle-label")[0].innerHTML = planetToCompare
+  document.querySelectorAll(".selectedPlanetText").forEach((d) => {
+    d.innerHTML = planetToCompare;
+  });
   filterDataAccordingToSelectedPlanet();
   reDrawEverything();
 }
